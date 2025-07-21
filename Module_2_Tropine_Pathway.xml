@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model id="biocrnpyler_61047" name="biocrnpyler_61047" substanceUnits="mole" timeUnits="second" volumeUnits="litre" areaUnits="square_metre" lengthUnits="metre" extentUnits="mole">
+    <listOfUnitDefinitions>
+      <unitDefinition id="square_metre">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="cytosol" name="cytosol" spatialDimensions="3" size="1e-06" constant="true"/>
+      <compartment id="peroxisome" name="peroxisome" spatialDimensions="3" size="1e-06" constant="true"/>
+      <compartment id="ER" name="ER" spatialDimensions="3" size="1e-06" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="Putrescine_cytosol" name="Putrescine" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="N_methylputrescine_cytosol" name="N_methylputrescine" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="intermediate_4_Methylaminobutanal_cytosol" name="4_Methylaminobutanal" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="N_Methyl__1_pyrrolinium_cytosol" name="N_Methyl_Δ1_pyrrolinium" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="intermediate_4_1_Methyl_2_pyrrodinyl_3_oxobutanoic_acids_cytosol" name="4_1_Methyl_2_pyrrodinyl_3_oxobutanoic_acids" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="Tropinone_cytosol" name="Tropinone" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="Tropine_cytosol" name="Tropine" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="enzyme_AbPMT1_enzyme_cytosol" name="AbPMT1_enzyme" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="enzyme_DsPMT1_enzyme_cytosol" name="DsPMT1_enzyme" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="enzyme_DmMPO1_C_PTS1_enzyme_peroxisome" name="DmMPO1ΔC_PTS1_enzyme" compartment="peroxisome" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="enzyme_AbPYKS_enzyme_and_2x_malonyl_CoA_molecules_cytosol" name="AbPYKS_enzyme_and_2x_malonyl_CoA_molecules" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="enzyme_AbCYP82M3_enzyme_ER" name="AbCYP82M3_enzyme" compartment="ER" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="enzyme_AtATR1_enzyme_ER" name="AtATR1_enzyme" compartment="ER" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="enzyme_DsTR1_enzyme_cytosol" name="DsTR1_enzyme" compartment="cytosol" initialConcentration="0" substanceUnits="mole" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction id="r0" name="r0" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Putrescine_cytosol" stoichiometry="1" constant="false"/>
+          <speciesReference species="enzyme_AbPMT1_enzyme_cytosol" stoichiometry="1" constant="false"/>
+          <speciesReference species="enzyme_DsPMT1_enzyme_cytosol" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="N_methylputrescine_cytosol" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_forward </ci>
+              <ci> Putrescine_cytosol </ci>
+              <ci> enzyme_AbPMT1_enzyme_cytosol </ci>
+              <ci> enzyme_DsPMT1_enzyme_cytosol </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_forward" value="3"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r1" name="r1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="N_methylputrescine_cytosol" stoichiometry="1" constant="false"/>
+          <speciesReference stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="intermediate_4_Methylaminobutanal_cytosol" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_forward </ci>
+              <ci> N_methylputrescine_cytosol </ci>
+              <ci> enzyme_DmMPO1 </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_forward" value="1.4"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r2" name="r2" reversible="false">
+        <listOfReactants>
+          <speciesReference species="intermediate_4_Methylaminobutanal_cytosol" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_forward </ci>
+              <ci> intermediate_4_Methylaminobutanal_cytosol </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_forward" value="1"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r3" name="r3" reversible="false">
+        <listOfReactants>
+          <speciesReference stoichiometry="1" constant="false"/>
+          <speciesReference species="enzyme_AbPYKS_enzyme_and_2x_malonyl_CoA_molecules_cytosol" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="intermediate_4_1_Methyl_2_pyrrodinyl_3_oxobutanoic_acids_cytosol" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_forward </ci>
+              <ci> N_Methyl_ </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_forward" value="1"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r4" name="r4" reversible="false">
+        <listOfReactants>
+          <speciesReference species="intermediate_4_1_Methyl_2_pyrrodinyl_3_oxobutanoic_acids_cytosol" stoichiometry="1" constant="false"/>
+          <speciesReference species="enzyme_AbCYP82M3_enzyme_ER" stoichiometry="1" constant="false"/>
+          <speciesReference species="enzyme_AtATR1_enzyme_ER" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Tropinone_cytosol" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_forward </ci>
+              <ci> intermediate_4_1_Methyl_2_pyrrodinyl_3_oxobutanoic_acids_cytosol </ci>
+              <ci> enzyme_AbCYP82M3_enzyme_ER </ci>
+              <ci> enzyme_AtATR1_enzyme_ER </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_forward" value="1"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r5" name="r5" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Tropinone_cytosol" stoichiometry="1" constant="false"/>
+          <speciesReference species="enzyme_DsTR1_enzyme_cytosol" stoichiometry="1" constant="false"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Tropine_cytosol" stoichiometry="1" constant="false"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_forward </ci>
+              <ci> Tropinone_cytosol </ci>
+              <ci> enzyme_DsTR1_enzyme_cytosol </ci>
+            </apply>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="k_forward" value="1"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
